@@ -1,0 +1,32 @@
+<div class="header">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<div class="container content mx-3 my-1">
+    <div class="row align-items-start justify-content-around ">
+        <div class=" col-lg-3 col-xl-2 col-md-4 col-sm-6  bg-light note m-3 ">
+            <div class="note-body p-2">
+                
+            </div>
+            <div class="note-action bg-dark">
+                
+            </div>
+            
+        </div>
+
+
+
+
+        <div class=" col-lg-3 col-xl-2 col-md-4  bg-light note m-3 ">
+            <div class="note-body p-2">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat est possimus eos excepturi quibusdam, illo repudiandae! Necessitatibus obcaecati expedita ipsa.</p>
+                <span>DAte</span>
+            </div>
+            <div class="note-action bg-dark">
+                what
+            </div>
+            
+        </div> 
+    </div>
+  </div>
