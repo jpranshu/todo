@@ -1,10 +1,18 @@
 <?php 
 include 'include/common.php';
 
-$id=$_REQUEST['id'];
-$query = "SELECT * from tasks where tid='".$id."'"; 
-$result = mysqli_query($dbc, $query) or die ( mysqli_error());
-$row = mysqli_fetch_assoc($result);
+if(isset($_REQUEST['action'])){
+    $action=$_REQUEST['action'];  
+}
+$action=$_REQUEST['action'];
+if(isset($_REQUEST['id'])){
+    $id=$_REQUEST['id'];
+    $ed_query = "SELECT * from tasks where tid='".$id."'"; 
+    $ed_result = mysqli_query($dbc, $ed_query) or die ( mysqli_error());
+    $row = mysqli_fetch_assoc($ed_result); 
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -28,22 +36,21 @@ $row = mysqli_fetch_assoc($result);
     <title>To-Do</title>
 </head>
 <body class="body">
-    
 <?php include 'include/header.php';?>
-    
+
+<div class="filter-check">
+    <a href="index.php" class="cat-button"><button class="btn btn-sm btn-info">Clear</button></a>    `
+    <a href="index.php?action=Home" class="cat-button"><button class="btn btn-sm btn-dark">Home</button></a>
+    <a href="index.php?action=Personal" class="cat-button"><button class="btn btn-sm btn-dark">Personal</button></a>
+    <a href="index.php?action=University" class="cat-button"><button class="btn btn-sm btn-dark">University</button></a>
+</div>
 
 
    <div class="content">
 
         <!-- note form -->
         <?php
-        if (isset($_SESSION['email'])){
 
-            $uid=$_SESSION["uid"];
-            $rows="SELECT * FROM tasks WHERE tasks.uid='$uid' AND tasks.status='pending'";
-            $result=mysqli_query($dbc,$rows);
-            $ro=mysqli_fetch_assoc($result);
-        }
             if(isset($id))
             {?>
             <div class="note">
@@ -179,7 +186,12 @@ $row = mysqli_fetch_assoc($result);
         if (isset($_SESSION['email'])){
 
             $uid=$_SESSION["uid"];
-            $rows="SELECT * FROM tasks WHERE tasks.uid='$uid' AND tasks.status='pending'";
+            if(isset($action)){
+                $rows="SELECT * FROM tasks WHERE tasks.uid='$uid' AND tasks.status='pending'AND tasks.category='".$action."'";
+            }
+            else{
+                $rows="SELECT * FROM tasks WHERE tasks.uid='$uid' AND tasks.status='pending'";
+            }
             $result=mysqli_query($dbc,$rows);
 
             if(mysqli_num_rows($result)>0){
