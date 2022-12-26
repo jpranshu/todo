@@ -2,7 +2,7 @@
     <?php if (isset($_SESSION['email'])) {?>
         
         <div class="header-name">
-        <a href="index.php"><h2>&nbsp &nbsp &nbsp &nbsp &nbsp Welcome <?php echo $_SESSION['name']?></h2></a>
+        <a href="index.php"><h2>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Welcome <?php echo $_SESSION['name']?></h2></a>
         </div>
         <div class="link-logout">
             <a id="link"href="include\logout.php" style="text-decoration: none; color: #ededed;" >

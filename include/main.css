@@ -1,32 +1,33 @@
 .body{
     background: rgb(229, 254, 242);
-
+    font-family: 'Roboto', sans-serif;
 }
 .content{
     margin:20px 5% 5%;
     display:grid;
-    gap:2%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:3%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     
 }
-@media (max-width:1250px){
+@media (max-width:1350px){
     .content{
-        grid-template-columns:1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr 1fr;
     }
 }
-@media (max-width:1000px){
+@media (max-width:1080px){
     .content{
         grid-template-columns:1fr 1fr 1fr ;
     }
 }
 
-@media (max-width:750px){
+@media (max-width:800px){
     .content{
         grid-template-columns:1fr 1fr ;
     }
 }
 @media (max-width:560px){
     .content{
+        margin:20px 9% 5%;
         grid-template-columns:1fr ;
     }
 }
@@ -44,7 +45,7 @@
     font-size: 30px;
     height:48px;
     vertical-align:middle ;
-    font-weight: bold;
+    font-weight: 700;
     
    color: aliceblue;
     background-color: rgb(0, 127, 152);
@@ -58,6 +59,10 @@
     padding: 5%;
     flex: 6;
     min-height: 200px;
+}
+.note-body p{
+    padding: 4%;
+    font-size:20px;
 }
 .note-dl{
     color: rgb(135, 135, 135);
