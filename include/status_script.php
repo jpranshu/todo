@@ -11,9 +11,7 @@
         </script>
 <?php
     }
-    $query="UPDATE tasks
-                SET  status='completed'
-                WHERE tid = '".$id."';";
+    $query="UPDATE tasks SET  status='completed' WHERE tid = '".$id."';";
     mysqli_query($dbc,$query);
     header("location: ../index.php")
     ?>

@@ -7,7 +7,7 @@ if(isset($_REQUEST['action'])){
 if(isset($_REQUEST['id'])){
     $id=$_REQUEST['id'];
     $ed_query = "SELECT * from tasks where tid='".$id."'"; 
-    $ed_result = mysqli_query($dbc, $ed_query) or die ( mysqli_error());
+    $ed_result = mysqli_query($dbc, $ed_query);
     $row = mysqli_fetch_assoc($ed_result); 
 }
 ?>
@@ -34,24 +34,22 @@ if(isset($_REQUEST['id'])){
 <body class="body">
 <?php include 'include/header.php';?>
 
-<div class="filter-check">
-    <a href="index.php" class="cat-button"><button class="btn btn-sm btn-info">Clear</button></a>    `
-    <a href="index.php?action=Home" class="cat-button"><button class="btn btn-sm btn-dark">Home</button></a>
-    <a href="index.php?action=Personal" class="cat-button"><button class="btn btn-sm btn-dark">Personal</button></a>
-    <a href="index.php?action=University" class="cat-button"><button class="btn btn-sm btn-dark">University</button></a>
-</div>
+    <div class="filter-check">
+        <a href="index.php" class="cat-button"><button class="btn btn-sm btn-info">Clear</button></a>    `
+        <a href="index.php?action=Home" class="cat-button"><button class="btn btn-sm btn-dark">Home</button></a>
+        <a href="index.php?action=Personal" class="cat-button"><button class="btn btn-sm btn-dark">Personal</button></a>
+        <a href="index.php?action=University" class="cat-button"><button class="btn btn-sm btn-dark">University</button></a>
+    </div>
 
 
    <div class="content">
 
         <!-- note form -->
         <?php
-
-            if(isset($id))
-            {?>
-            <div class="note">
-                <form action="include/add_script.php?id=<?php echo $id?>" method="post">
-                
+        if(isset($id))
+        {?>
+        <div class="note">
+            <form action="include/add_script.php?id=<?php echo $id?>" method="post">
                 <div class="note-body">
                     <div class="form-group">
                         <input type="hidden" id="tid" name="tid" class="form-control bg-light" value="<?php echo $id?>"/>
@@ -109,13 +107,12 @@ if(isset($_REQUEST['id'])){
                     
 
                 </div>
-                </form>
+            </form>
             
-            </div>
+        </div>
 
-            <?php
-            }
-            else{?>
+        <?php   }
+        else{?>
         <div class="note">
             <form action="include/add_script.php" method="post">
                 
@@ -165,22 +162,14 @@ if(isset($_REQUEST['id'])){
                     </div>
                     
                     <div class="text-center p-0 m-0"><button type="submit" name="submit" class="btn btn-info btn-lg mt-3">Add Task</button></div>
-                    
-                    
-                            
-                        
-                    
-                    
-
                 </div>
             </form>
-            
         </div>
 
 
         <?php }
-    if (isset($_SESSION['email'])){
-
+        if (isset($_SESSION['email'])){
+            
             $uid=$_SESSION["uid"];
             if(isset($action)){
                 $rows="SELECT * FROM tasks WHERE tasks.uid='$uid' AND tasks.status='pending'AND tasks.category='".$action."'";
@@ -191,9 +180,10 @@ if(isset($_REQUEST['id'])){
             $result=mysqli_query($dbc,$rows);
 
             if(mysqli_num_rows($result)>0){
-                while($ro=mysqli_fetch_assoc($result)){?>
+            while($ro=mysqli_fetch_assoc($result)){
+                    sleep(1);?>
             <!-- database notes -->
-            <div class="note">
+        <div class="note">
                 <div class="note-title">
                     <?php echo $ro['title'];
                     echo " - ";echo $ro['category']?>
@@ -228,9 +218,8 @@ if(isset($_REQUEST['id'])){
                     </button></a>
                     </div>
                 </div>
-            </div>
-        <?php }
-    }
+        </div>
+    <?php }}
     }?>
     
     </div>

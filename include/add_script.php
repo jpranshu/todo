@@ -24,7 +24,7 @@
                 $query="UPDATE tasks
                 SET title='".$title."' , category='".$category."',task='".$task."',deadline='".$deadline."'
                 WHERE tid = '".$id."';";
-                mysqli_query($dbc, $query) or die(mysqli_error());
+                mysqli_query($dbc, $query);
                 ?><script>
                     location.href="../index.php";
                     </script>

@@ -23,7 +23,9 @@
 
             $sql="SELECT email FROM users WHERE email='$email'";
             $result=mysqli_query($dbc,$sql);
+            
             if(mysqli_num_rows($result)==0){
+                
                 $query="INSERT INTO users (name,email,password) VALUES (?, ?, ?)";
                 $stmt=mysqli_prepare($dbc, $query);
                 mysqli_stmt_bind_param($stmt, "sss",$name, $email, $password);
@@ -47,7 +49,6 @@
                             location.href="../index.php";
                         </script>
                     <?php
-                    echo mysqli_error();
                     mysqli_stmt_close($stmt);
                     mysqli_close($dbc);
                 }

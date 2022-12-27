@@ -1,10 +1,7 @@
 <?php
-    
-       
-        include 'common.php';
-        $id=$_REQUEST['id'];
-    if (!isset($_SESSION['email']))
-    {?>
+    include 'common.php';
+    $id=$_REQUEST['id'];
+    if (!isset($_SESSION['email'])){?>
         <script>
             alert("Login to enter task");
             location.href="../login.php";
