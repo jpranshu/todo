@@ -35,15 +35,21 @@ if(isset($_REQUEST['id'])){
 <?php include 'include/header.php';?>
 
     <div class="filter-check">
-        <a href="index.php" class="cat-button"><button class="btn btn-sm btn-info">Clear</button></a>    `
-        <a href="index.php?action=Home" class="cat-button"><button class="btn btn-sm btn-dark">Home</button></a>
-        <a href="index.php?action=Personal" class="cat-button"><button class="btn btn-sm btn-dark">Personal</button></a>
-        <a href="index.php?action=University" class="cat-button"><button class="btn btn-sm btn-dark">University</button></a>
+        <a href="index.php" class="cat-button"><button class="btn btn-sm btn-secondary">Clear</button></a>    `
+        <a href="index.php?action=Home" class="cat-button">
+            <?php if(isset($action)&&$action=="Home"){?><button class="btn btn-sm btn-dark">Home</button><?php }
+            else{?><button class="btn btn-sm btn-secondary">Home</button><?php } ?></a>
+        <a href="index.php?action=Personal" class="cat-button">
+            <?php if(isset($action)&&$action=="Personal"){?><button class="btn btn-sm btn-dark">Personal</button><?php }
+            else{?><button class="btn btn-sm btn-secondary">Personal</button><?php } ?></a>
+        <a href="index.php?action=University" class="cat-button">
+            <?php if(isset($action)&&$action=="University"){?><button class="btn btn-sm btn-dark">University</button><?php }
+            else{?><button class="btn btn-sm btn-secondary">University</button><?php } ?></a>
+        
     </div>
 
 
    <div class="content">
-
         <!-- note form -->
         <?php
         if(isset($id))
@@ -98,7 +104,7 @@ if(isset($_REQUEST['id'])){
                         </div>
                     </div>
                     
-                    <div class="text-center p-0 m-0"><button type="submit" name="submit" class="btn btn-info btn-lg mt-3">Edit</button></div>
+                    <div class="text-center p-0 m-0"><button type="submit" name="submit" class="btn btn-secondary btn-lg mt-3">Edit</button></div>
                     
                     
                             
@@ -161,7 +167,7 @@ if(isset($_REQUEST['id'])){
                         </div>
                     </div>
                     
-                    <div class="text-center p-0 m-0"><button type="submit" name="submit" class="btn btn-info btn-lg mt-3">Add Task</button></div>
+                    <div class="text-center p-0 m-0"><button type="submit" name="submit" class="btn btn-secondary btn-lg mt-3">Add Task</button></div>
                 </div>
             </form>
         </div>
@@ -181,7 +187,7 @@ if(isset($_REQUEST['id'])){
 
             if(mysqli_num_rows($result)>0){
             while($ro=mysqli_fetch_assoc($result)){
-                    sleep(1);?>
+                    ?>
             <!-- database notes -->
         <div class="note">
                 <div class="note-title">
@@ -219,10 +225,15 @@ if(isset($_REQUEST['id'])){
                     </div>
                 </div>
         </div>
-    <?php }}
-    }?>
+        <?php }}
+        }?>
     
     </div>
+
+    <div class="footer">
+        
+    </div>
     
+
 </body>
 </html>

@@ -1,4 +1,3 @@
 $(function() {
     $('#deadline').datepicker();
 });
-

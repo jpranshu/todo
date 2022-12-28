@@ -1,5 +1,5 @@
 .body{
-    background: rgb(229, 254, 242);
+    background: rgb(194, 213, 211);
     font-family: 'Roboto', sans-serif;
 }
 .content{
@@ -37,18 +37,20 @@
     margin-top: 20px;
     flex-wrap: nowrap;
     flex-direction: column;
-    border-radius: 10px;
-    background:rgb(194, 254, 253) ;
+    border-radius: 8px;
+    background:rgb(200, 250, 242) ;
+    box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.46);
 }
 .note-title{
     text-align: center;
     font-size: 26px;
     height:50px;
     vertical-align:middle ;
-    font-weight: 700;
+    border-radius: 8px 8px 1px 1px;
+    font-weight: 500;
     padding: 2%;
    color: aliceblue;
-    background-color: rgb(0, 127, 152);
+    background-color: rgb(56, 87, 84);
     
 }
 .note-body{
